@@ -204,3 +204,10 @@ State auto-created on first tick, persisted between runs. Session advances on 5-
   <a href="https://github.com/javimosch/supercli">supercli</a> ·
   Hermes CLI
 </p>
+
+<p align="center">
+  <b>Author</b><br>
+  <a href="https://www.linkedin.com/in/arancibiajav/">Javier Leandro Arancibia</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/javimosch">@javimosch</a>
+</p>
