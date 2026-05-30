@@ -52,16 +52,18 @@ ln -s $(pwd)/.agents/skills/hermes-a2a-cron-agent-maintainer ~/.agents/skills/he
 sudo hermes gateway install --system --run-as-user root
 
 # 5. Register the cron job (use the prompt from .agents/skills/SKILL.md)
-hermes cron create \
+cronjob action=create \
   name=a2a-hardening \
   schedule="once in 30m" \
   skills='["a2a-cheatsheet"]' \
   repeat=0 \
+  deliver=local \
   enabled_toolsets='["terminal","file"]' \
   prompt="..."
 
 # 6. Verify
 hermes cron status
+cronjob action=list
 # → ✓ Gateway is running — cron jobs will fire automatically
 ```
 
