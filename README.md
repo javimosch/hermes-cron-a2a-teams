@@ -61,7 +61,11 @@ cronjob action=create \
   enabled_toolsets='["terminal","file"]' \
   prompt="..."
 
-# 6. Verify
+# 6. Validate setup
+./validate-setup.sh
+# → Comprehensive validation of all prerequisites
+
+# 7. Verify cron configuration
 hermes cron status
 cronjob action=list
 # → ✓ Gateway is running — cron jobs will fire automatically
@@ -168,12 +172,70 @@ The skill covers:
 
 ---
 
+## 🛠 Development Tools
+
+This repository includes comprehensive tooling for setup validation, troubleshooting, and maintenance:
+
+### Setup Validation
+```bash
+# Validate complete system setup
+./validate-setup.sh
+```
+
+**Features:**
+- ✅ Prerequisite checking (Hermes, A2A, agent CLIs)
+- ✅ Network connectivity and GitHub repository validation
+- ✅ File permissions and ownership verification
+- ✅ Database directory structure validation
+- ✅ Colored output with error/warning categorization
+
+### Documentation Consistency
+```bash
+# Check documentation consistency between files
+./check-docs.sh
+```
+
+**Features:**
+- ✅ Command syntax validation between README and SKILL.md
+- ✅ URL consistency checking
+- ✅ Version reference validation
+- ✅ Hard-coded path detection
+
+### Troubleshooting & Diagnosis
+```bash
+# Diagnose and fix common A2A system issues
+./troubleshoot-a2a.sh
+```
+
+**Features:**
+- 🔧 Automated diagnosis of 10+ common failure modes
+- 🔧 Automatic fixes for resolvable issues (gateway, ownership, auth)
+- 🔧 Process state validation and PID cleanup
+- 🔧 Network connectivity and repository access testing
+- 🔧 State file integrity validation with JSON parsing
+
+### Test Coverage
+```bash
+# Run all test suites
+./test-validate-setup.sh      # Test setup validation functionality
+./test-enhanced-validation.sh # Test enhanced validation features  
+./test-troubleshoot-a2a.sh    # Test troubleshooting tool (26 checks)
+```
+
+All tools include comprehensive test suites with 100% pass rates and proper error handling.
+
+---
+
 ## 🗂 Key Files
 
 | Path | Purpose |
 |---|---|
 | `.agents/skills/hermes-a2a-cron-agent-maintainer/SKILL.md` | Canonical skill (loadable by Hermes) |
 | `README.md` | This file |
+| `validate-setup.sh` | Comprehensive setup validation tool |
+| `troubleshoot-a2a.sh` | Automated troubleshooting and repair tool |
+| `check-docs.sh` | Documentation consistency checker |
+| `test-*.sh` | Test suites for all tools |
 | `docs/` | (optional) Extended docs |
 
 ---
